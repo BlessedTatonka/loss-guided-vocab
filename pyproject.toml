@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "loss-guided-vocab"
+version = "1.0.0"
+description = "Loss-guided vocabulary discovery for multilingual static encoders"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = {text = "Apache-2.0"}
+authors = [{name = "Boris Malashenko"}]
+dependencies = [
+  "accelerate==1.13.0",
+  "comet-ml==3.57.4",
+  "datasets==4.8.5",
+  "huggingface-hub==1.16.4",
+  "numpy==2.2.2",
+  "pyarrow==24.0.0",
+  "pymorphy3==2.0.6",
+  "PyYAML==6.0.2",
+  "safetensors==0.7.0",
+  "scikit-learn==1.8.0",
+  "sentencepiece==0.2.1",
+  "sentence-transformers==5.5.1",
+  "simplemma==1.2.0",
+  "stopwordsiso==0.7.1",
+  "sudachidict-core==20260428",
+  "sudachipy==0.6.11",
+  "tokenizers==0.22.2",
+  "torch==2.6.0",
+  "transformers==5.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.2",
+  "ruff==0.12.12",
+]
+selection = [
+  "mteb==2.12.30",
+  "pytrec-eval-terrier==0.5.10",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/starse"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

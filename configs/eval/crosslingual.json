@@ -1,0 +1,34 @@
+{
+  "protocol": "multilingual-sota-validation-v1",
+  "benchmark": "MTEB(Multilingual, v2)",
+  "reporting_macro": "unweighted mean over exactly Tatoeba, BUCC.v2, and FloresBitextMining; no STS task is included",
+  "reference_clean_excludes": [],
+  "training_exclusions": [
+    "mteb/tatoeba-bitext-mining",
+    "mteb/bucc-bitext-mining",
+    "mteb/FloresBitextMining"
+  ],
+  "tasks": {
+    "Tatoeba": {
+      "type": "BitextMining",
+      "dataset": "mteb/tatoeba-bitext-mining",
+      "revision": "69e8f12da6e31d59addadda9a9c8a2e601a0e282"
+    },
+    "BUCC.v2": {
+      "type": "BitextMining",
+      "dataset": "mteb/bucc-bitext-mining",
+      "revision": "1739dc11ffe9b7bfccd7f3d585aeb4c544fc6677"
+    },
+    "FloresBitextMining": {
+      "type": "BitextMining",
+      "dataset": "mteb/FloresBitextMining",
+      "revision": "2144d16cc15edd22d4a9237d12bff5f31f5c07fc",
+      "subsets": {
+        "policy": "target-to-english",
+        "suffix": "-eng_Latn",
+        "expected_count": 193,
+        "sha256": "11476d62ee7f793e862090fc37e8abbd227c88ce04121267ca8a6942433a8ae4"
+      }
+    }
+  }
+}
